@@ -51,7 +51,7 @@ RUN cd /tmp && \
 # Install tomcat
 RUN mkdir /opt/tomcat && \
     tar xzvf /tmp/apache-tomcat-8.5.5.tar.gz -C /opt/tomcat --strip-components=1
-
+VOLUME "/opt/tomcat/webapps"
 WORKDIR /opt/tomcat
 
 # update permission
