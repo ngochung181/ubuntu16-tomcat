@@ -87,11 +87,12 @@ RUN sed -i -e "$ a [client]\n\n[mysql]\n\n[mysqld]"  /etc/mysql/my.cnf && \
 RUN rm -rf /tmp/*
 ADD context.xml /opt/tomcat/webapps/manager/META-INF/
 ADD tomcat-users.xml /opt/tomcat/conf/
+VOLUME "/opt/tomcat/webapps"
 # Label
-LABEL "tomcat"="TRUE"
-LABEL "mysql"="TRUE"
-LABEL "ssh"="TRUE"
-
+LABEL  "service_ssh"="22"
+LABEL  "service_apache"="80"
+LABEL  "service_mysql"="3306"
+LABEL  "service_tomcat"="8080"
 
 EXPOSE 22 8080 80 3306
 
